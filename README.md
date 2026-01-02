@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+1. Clone the repository
+git clone <repository-url>
+cd project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2. Install dependencies
+npm install
 
-## Available Scripts
+3. Start the development server
+npm start
 
-In the project directory, you can run:
+The app will run at:
+http://localhost:3000
 
-### `npm start`
+There are public keys in config.js as its only frontend project 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##**🔑 API Handling Strategy**
 
-### `npm test`
+Unsplash API
+Used for fetching images only (read-only access)
+Implemented using a custom React hook
+Infinite scrolling is used for better performance
+No Unsplash data is stored permanently
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+InstantDB
+Used for real-time reactions and comments
+No custom backend or server required
+Each user can have only one reaction per image
+Image metadata is stored with reactions and comments
 
-### `npm run build`
+##**🗄️ InstantDB Schema & Usage**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Reactions
+Each reaction stores:
+imageId
+emoji
+userId
+userName
+timestamp
+imageMetadata
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Comments
+Each comment stores:
+imageId
+text
+userId
+userName
+timestamp
+imageMetadata
+InstantDB handles real-time syncing automatically.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##**⚛️ Key React Decisions**
 
-### `npm run eject`
+Functional components only
+Custom hooks for API logic
+Lightweight global store for shared state
+Minimal animations to avoid over-engineering
+UI intentionally kept simple and hand-crafted
+No heavy state management libraries were used.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##**🧩 Challenges Faced & Solutions**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Environment variables
+Faced issues with .env loading in a frontend-only setup
+Since the APIs use public read-only keys, configuration was handled using a simple config file
+In production, these would be handled via environment variables or a backend proxy
+Tailwind CSS version conflicts
+Encountered breaking changes in Tailwind v4
+Resolved by aligning PostCSS configuration and versions
+Real-time data consistency
+Ensured only one reaction per user per image
+Handled reaction toggling and cleanup properly
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+##**🔮 What I Would Improve With More Time**
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Better accessibility (keyboard navigation, ARIA labels)
+Improved mobile layout
+Image bookmarking or favorites
+Filtering and sorting in activity feed
+Basic test coverage for core logic
+Backend proxy for better API key handling
