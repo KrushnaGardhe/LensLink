@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useStore } from "../../../project/src/store/useStore";
+import { useStore } from "../store/useStore";
 
 const Login = () => {
   const [username, setUsername] = useState("");

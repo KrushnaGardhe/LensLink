@@ -3,7 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { Loader2, AlertCircle } from "lucide-react";
 
-import { useUnsplash } from "../../../project/src/hooks/useUnsplash";
+import { useUnsplash } from "../hooks/useUnsplash";
 import ImageCard from "./ImageCard";
 
 const Gallery = () => {

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { db } from "../lib/instantdb";
-import { useStore } from "../../../project/src/store/useStore";
+import { useStore } from "../store/useStore";
 import { formatDistanceToNow } from "date-fns";
 import { MessageCircle, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";

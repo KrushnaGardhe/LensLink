@@ -1,5 +1,5 @@
 import React from "react";
-import { EMOJIS } from "../../../project/src/constants";
+import { EMOJIS } from "../constants";
 
 const EmojiPicker = ({ onSelect }) => {
   return (

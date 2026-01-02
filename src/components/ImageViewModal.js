@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useStore } from "../../../project/src/store/useStore";
-import { db } from "../../../project/src/lib/instantdb";
+import { useStore } from "../store/useStore";
+import { db } from "../instantdb";
 import { id } from "@instantdb/react";
 import { X, Send, Trash2, MessageCircle } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
-import { EMOJIS } from "../../../project/src/constants";
+import { EMOJIS } from "../constants";
 
 const ImageViewModal = () => {
   const { selectedImage, setSelectedImage, user } = useStore();

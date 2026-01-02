@@ -1,9 +1,9 @@
 import React from "react";
-import { db } from "../../../project/src/lib/instantdb";
+import { db } from "../lib/instantdb";
 import { id } from "@instantdb/react";
 import { MessageCircle, User } from "lucide-react";
-import { useStore } from "../../../project/src/store/useStore";
-import { EMOJIS } from "../../../project/src/constants";
+import { useStore } from "../store/useStore";
+import { EMOJIS } from "../constants";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ImageCard = ({ image }) => {

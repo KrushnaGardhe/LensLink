@@ -6,7 +6,7 @@ import Gallery from "./components/Gallery";
 import Feed from "./components/Feed";
 import ImageViewModal from "./components/ImageViewModal";
 import Login from "./components/Login";
-import { useStore } from "../../project/src/store/useStore";
+import { useStore } from "./store/useStore";
 
 import "./index.css";
 
