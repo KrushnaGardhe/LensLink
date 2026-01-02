@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useStore } from "../store/useStore";
-import { db } from "../instantdb";
+import { db } from "../lib/instantdb";
 import { id } from "@instantdb/react";
 import { X, Send, Trash2, MessageCircle } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
